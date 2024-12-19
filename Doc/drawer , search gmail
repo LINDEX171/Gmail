@@ -1,0 +1,11 @@
+ 1)body: SafeArea(
+ 2)class _HomePageState extends State<HomePage> {
+     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+ 3)return Scaffold(
+         key: _scaffoldKey,
+     4)IconButton(
+         onPressed: () {
+        _scaffoldKey.currentState?.openDrawer();
+           },
+        icon: Icon(Icons.menu),
+        ),
