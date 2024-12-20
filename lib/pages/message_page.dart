@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
 
+import 'package:flutter/material.dart';
+import 'package:gmail/data/messages.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({super.key});
@@ -15,39 +17,50 @@ class _MessagePageState extends State<MessagePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 18),
+            child: Text("Principale",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
+          ),
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: messages.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   isThreeLine: true,
                   leading: CircleAvatar(
+
                     radius: 25,
-                    child: Text("A"),
-                    backgroundColor: Colors.orange,
+                    child: Text(messages[index]["title"]![0], ),
+                    backgroundColor: Colors
+                        .primaries[Random().nextInt(Colors.primaries.length)].shade600,
+                    foregroundColor: Colors.white,
                   ),
                   title: Text(
-                    "Anki web",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    messages[index]["title"]!,
+                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
                   ),
                   subtitle: Text(
-                      "please do something like i don't know how i can do"),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      messages[index]["body"]!),
                   trailing: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("10:23 PM"),
+                      Text(TimeOfDay.fromDateTime(DateTime.parse(messages[index]["date"].toString())).format(context)),
                       Expanded(
-                        child: IconButton(onPressed: () {
-
-                        }, icon: Icon(Icons.star_border,size: 20,)),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.star_border,
+                              size: 20,
+                            )),
                       )
                     ],
                   ),
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                 );
               },
             ),
