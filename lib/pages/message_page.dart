@@ -16,9 +16,40 @@ class _MessagePageState extends State<MessagePage> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(itemCount: 10, itemBuilder: (context, index) {
-              return ListTile(leading: CircleAvatar(backgroundColor: Colors.orange,), title: Text("Anki web",style: TextStyle(fontWeight: FontWeight.bold),),subtitle: Text("please do something like i don't know how i can do"),);
-            },),
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  isThreeLine: true,
+                  leading: CircleAvatar(
+                    radius: 25,
+                    child: Text("A"),
+                    backgroundColor: Colors.orange,
+                  ),
+                  title: Text(
+                    "Anki web",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                      "please do something like i don't know how i can do"),
+                  trailing: Column(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text("10:23 PM"),
+                      Expanded(
+                        child: IconButton(onPressed: () {
+
+                        }, icon: Icon(Icons.star_border,size: 20,)),
+                      )
+                    ],
+                  ),
+                  onTap: () {
+
+                  },
+                );
+              },
+            ),
           )
         ],
       ),

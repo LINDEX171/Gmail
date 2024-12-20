@@ -80,6 +80,27 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(icon: Icon(Icons.photo_camera_front), label: "",selectedIcon: Icon(Icons.photo_camera_front,color: Colors.red,) ,),
         ]),
       ),
+      floatingActionButton: Container(
+        width: 180,
+        decoration: BoxDecoration(
+            color: Colors.transparent),
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.red,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          onPressed: () {
+
+        },child: Row(
+          children: [
+            IconButton(onPressed: () {
+
+            }, icon: Icon(Icons.edit)),
+            Expanded(child: Text("Nouveau message")),
+          ],
+        ),),
+      ),
     );
   }
 }
