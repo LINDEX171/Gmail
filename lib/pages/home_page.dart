@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           _scaffoldKey.currentState?.openDrawer();
                         },
-                        icon: Icon(Icons.menu)),
+                        icon:  Icon(Icons.menu)),
                     Expanded(
                         child: TextField(
                           decoration: InputDecoration(
